@@ -13,6 +13,7 @@
 		FAD37B741D7F48E200C55D64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD37B721D7F48E200C55D64 /* LaunchScreen.storyboard */; };
 		FAD37B7C1D7F49FA00C55D64 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD37B7B1D7F49FA00C55D64 /* TableViewController.swift */; };
 		FAD37B881D7F4F6A00C55D64 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD37B871D7F4F6A00C55D64 /* Swifter.framework */; };
+		FAD37B8B1D7F564F00C55D64 /* Servus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD37B8A1D7F564F00C55D64 /* Servus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FAD37B751D7F48E200C55D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAD37B7B1D7F49FA00C55D64 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FAD37B871D7F4F6A00C55D64 /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Carthage/Build/iOS/Swifter.framework; sourceTree = "<group>"; };
+		FAD37B8A1D7F564F00C55D64 /* Servus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Servus.framework; path = Carthage/Build/iOS/Servus.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD37B8B1D7F564F00C55D64 /* Servus.framework in Frameworks */,
 				FAD37B881D7F4F6A00C55D64 /* Swifter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD37B871D7F4F6A00C55D64 /* Swifter.framework */,
+				FAD37B8A1D7F564F00C55D64 /* Servus.framework */,
 			);
 			name = Deps;
 			sourceTree = "<group>";
@@ -150,6 +154,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Swifter.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Servus.framework",
 			);
 			outputPaths = (
 			);
