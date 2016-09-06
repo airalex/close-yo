@@ -38,15 +38,18 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        server["/hello"] = { (request) in
+        server["/yo"] = { (request) in
             
+            // extract sender from query params
             let sender = request.queryParams.filter({ $0.0 == "sender"}).first?.1 ?? "unknown"
             
+            // show alrt
             dispatch_async(dispatch_get_main_queue()) {
                 UIAlertView(title: "Yo", message: "from " + sender, delegate: nil, cancelButtonTitle: "OK").show()
             }
             
-            return HttpResponse.OK(HttpResponseBody.Text("World!"))
+            // return confirmation
+            return HttpResponse.OK(HttpResponseBody.Json(["yo" : sender]))
         }
         
         do {
