@@ -7,11 +7,23 @@
 //
 
 import UIKit
-import Swifter
+import Servus
 
 class TableViewController: UITableViewController {
     
-    let server = HttpServer()
+    let explorer = Servus.Explorer(identifier: NSUUID().UUIDString, appName: "CloseYo")
+    var peers: [Servus.Peer] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       
+        explorer.delegate = self
+        explorer.startExploring()
+    }
     
     // MARK: UITableViewDataSource
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -19,7 +31,7 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return peers.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -34,29 +46,30 @@ class TableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "nearby homies"
     }
+}
+
+extension TableViewController: Servus.ExplorerDelegate {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        server["/yo"] = { (request) in
-            
-            // extract sender from query params
-            let sender = request.queryParams.filter({ $0.0 == "sender"}).first?.1 ?? "unknown"
-            
-            // show alrt
-            dispatch_async(dispatch_get_main_queue()) {
-                UIAlertView(title: "Yo", message: "from " + sender, delegate: nil, cancelButtonTitle: "OK").show()
-            }
-            
-            // return confirmation
-            return HttpResponse.OK(HttpResponseBody.Json(["yo" : sender]))
+    func explorer(explorer: Servus.Explorer, didSpotPeer peer: Servus.Peer) {
+        print(#function)
+        peers.append(peer)
+    }
+    
+    func explorer(explorer: Servus.Explorer, didDeterminePeer peer: Servus.Peer) {
+        print(#function)
+        if let index = peers.indexOf({ $0.identifier == peer.identifier }) {
+            peers.removeAtIndex(index)
         }
         
-        do {
-            try server.start()
-        } catch {
-            print(error)
+        peers.append(peer)
+    }
+    
+    func explorer(explorer: Servus.Explorer, didLosePeer peer: Servus.Peer) {
+        print(#function)
+        if let index = peers.indexOf({ $0.identifier == peer.identifier }) {
+            peers.removeAtIndex(index)
         }
     }
+    
 }
 
