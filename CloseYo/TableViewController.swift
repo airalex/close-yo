@@ -37,7 +37,8 @@ class TableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HomieCell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = "Homie!"
+        let peer = peers[indexPath.row]
+        cell.textLabel?.text = peer.hostname ?? "unknown (\(peer))"
         
         return cell
     }
@@ -48,13 +49,16 @@ class TableViewController: UITableViewController {
     }
 }
 
+// MARK: ExplorerDelegate
 extension TableViewController: Servus.ExplorerDelegate {
     
+    // no hostname yet
     func explorer(explorer: Servus.Explorer, didSpotPeer peer: Servus.Peer) {
         print(#function)
         peers.append(peer)
     }
     
+    // hostname resolved
     func explorer(explorer: Servus.Explorer, didDeterminePeer peer: Servus.Peer) {
         print(#function)
         if let index = peers.indexOf({ $0.identifier == peer.identifier }) {
@@ -64,6 +68,7 @@ extension TableViewController: Servus.ExplorerDelegate {
         peers.append(peer)
     }
     
+    // disappeared
     func explorer(explorer: Servus.Explorer, didLosePeer peer: Servus.Peer) {
         print(#function)
         if let index = peers.indexOf({ $0.identifier == peer.identifier }) {
