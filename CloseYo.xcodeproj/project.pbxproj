@@ -12,10 +12,49 @@
 		FAD37B711D7F48E200C55D64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD37B701D7F48E200C55D64 /* Assets.xcassets */; };
 		FAD37B741D7F48E200C55D64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD37B721D7F48E200C55D64 /* LaunchScreen.storyboard */; };
 		FAD37B7C1D7F49FA00C55D64 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD37B7B1D7F49FA00C55D64 /* TableViewController.swift */; };
-		FAD37B881D7F4F6A00C55D64 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD37B871D7F4F6A00C55D64 /* Swifter.framework */; };
-		FAD37B8B1D7F564F00C55D64 /* Servus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD37B8A1D7F564F00C55D64 /* Servus.framework */; };
 		FAD37B8F1D7F5EE800C55D64 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD37B8E1D7F5EE800C55D64 /* Communicator.swift */; };
+		FAD873DD1D80B1B6006FA464 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD37B871D7F4F6A00C55D64 /* Swifter.framework */; };
+		FAD873E81D80B306006FA464 /* Servus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD873E41D80B235006FA464 /* Servus.framework */; };
+		FAD873E91D80B306006FA464 /* Servus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAD873E41D80B235006FA464 /* Servus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAD873E31D80B235006FA464 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAD873DE1D80B235006FA464 /* Servus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FA0B0A4E1C2FEC3100913ECF;
+			remoteInfo = Servus;
+		};
+		FAD873E51D80B235006FA464 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAD873DE1D80B235006FA464 /* Servus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FA0B0AC51C30A76000913ECF;
+			remoteInfo = ServusExample;
+		};
+		FAD873EA1D80B306006FA464 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAD873DE1D80B235006FA464 /* Servus.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FA0B0A4D1C2FEC3100913ECF;
+			remoteInfo = Servus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FAD873EC1D80B306006FA464 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FAD873E91D80B306006FA464 /* Servus.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FAD37B661D7F48E200C55D64 /* CloseYo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloseYo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,8 +65,8 @@
 		FAD37B751D7F48E200C55D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAD37B7B1D7F49FA00C55D64 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FAD37B871D7F4F6A00C55D64 /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Carthage/Build/iOS/Swifter.framework; sourceTree = "<group>"; };
-		FAD37B8A1D7F564F00C55D64 /* Servus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Servus.framework; path = Carthage/Build/iOS/Servus.framework; sourceTree = "<group>"; };
 		FAD37B8E1D7F5EE800C55D64 /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
+		FAD873DE1D80B235006FA464 /* Servus.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Servus.xcodeproj; path = Subtree/Servus/Servus.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,8 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD37B8B1D7F564F00C55D64 /* Servus.framework in Frameworks */,
-				FAD37B881D7F4F6A00C55D64 /* Swifter.framework in Frameworks */,
+				FAD873E81D80B306006FA464 /* Servus.framework in Frameworks */,
+				FAD873DD1D80B1B6006FA464 /* Swifter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +116,19 @@
 		FAD37B7D1D7F4E5A00C55D64 /* Deps */ = {
 			isa = PBXGroup;
 			children = (
+				FAD873DE1D80B235006FA464 /* Servus.xcodeproj */,
 				FAD37B871D7F4F6A00C55D64 /* Swifter.framework */,
-				FAD37B8A1D7F564F00C55D64 /* Servus.framework */,
 			);
 			name = Deps;
+			sourceTree = "<group>";
+		};
+		FAD873DF1D80B235006FA464 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAD873E41D80B235006FA464 /* Servus.framework */,
+				FAD873E61D80B235006FA464 /* ServusExample.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,10 +142,12 @@
 				FAD37B631D7F48E200C55D64 /* Frameworks */,
 				FAD37B641D7F48E200C55D64 /* Resources */,
 				FAD37B891D7F4F7F00C55D64 /* ShellScript */,
+				FAD873EC1D80B306006FA464 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FAD873EB1D80B306006FA464 /* PBXTargetDependency */,
 			);
 			name = CloseYo;
 			productName = CloseYo;
@@ -129,12 +179,35 @@
 			mainGroup = FAD37B5D1D7F48E200C55D64;
 			productRefGroup = FAD37B671D7F48E200C55D64 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FAD873DF1D80B235006FA464 /* Products */;
+					ProjectRef = FAD873DE1D80B235006FA464 /* Servus.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FAD37B651D7F48E200C55D64 /* CloseYo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FAD873E41D80B235006FA464 /* Servus.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Servus.framework;
+			remoteRef = FAD873E31D80B235006FA464 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAD873E61D80B235006FA464 /* ServusExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ServusExample.app;
+			remoteRef = FAD873E51D80B235006FA464 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FAD37B641D7F48E200C55D64 /* Resources */ = {
@@ -157,7 +230,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Swifter.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Servus.framework",
 			);
 			outputPaths = (
 			);
@@ -179,6 +251,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAD873EB1D80B306006FA464 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Servus;
+			targetProxy = FAD873EA1D80B306006FA464 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FAD37B6D1D7F48E200C55D64 /* Main.storyboard */ = {
@@ -289,6 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -304,6 +385,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -334,6 +416,7 @@
 				FAD37B7A1D7F48E200C55D64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
