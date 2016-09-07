@@ -12,6 +12,8 @@ import Servus
 class TableViewController: UITableViewController {
     
     let explorer = Servus.Explorer(identifier: NSUUID().UUIDString, appName: "CloseYo")
+    let communicator = Communicator()
+    
     var peers: [Servus.Peer] = [] {
         didSet {
             tableView.reloadData()
@@ -23,6 +25,12 @@ class TableViewController: UITableViewController {
        
         explorer.delegate = self
         explorer.startExploring()
+        
+        communicator.startListening { (sender) in
+            dispatch_async(dispatch_get_main_queue()) {
+                UIAlertView(title: "Yo!", message: "from " + sender, delegate: nil, cancelButtonTitle: "OK").show()
+            }
+        }
     }
     
     // MARK: UITableViewDataSource
@@ -46,6 +54,15 @@ class TableViewController: UITableViewController {
     // MARK: UITableViewDelegate
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "nearby homies"
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        guard let homieHostname = peers[indexPath.row].hostname else {
+            return
+        }
+        
+        let myName = explorer.identifier
+        communicator.sayYo(homieHostName: homieHostname, myName: myName)
     }
 }
 
