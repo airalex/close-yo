@@ -11,7 +11,7 @@ import Servus
 
 class TableViewController: UITableViewController {
     
-    let explorer = Servus.Explorer(identifier: NSUUID().UUIDString, appName: "CloseYo")
+    let explorer = Servus.Explorer()
     let communicator = Communicator()
     
     var peers: [Servus.Peer] = [] {
