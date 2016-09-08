@@ -57,11 +57,13 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         guard let homieHostname = peers[indexPath.row].hostname else {
             return
         }
         
-        let myName = explorer.identifier
+        let myName = (UIDevice.currentDevice().name as NSString).stringByReplacingOccurrencesOfString(" ", withString: "-")
         communicator.sayYo(homieHostName: homieHostname, myName: myName)
     }
 }
